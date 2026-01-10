@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOX PDV com Sistema Incluso | Venda Nacional</title>
+  <meta name="description" content="BOX PDV completo com sistema incluso. Envio para todo o Brasil, configuração personalizada e suporte remoto. Fale no WhatsApp: (11) 94504-7842" />
+  <meta name="theme-color" content="#0b0f17" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BOX PDV com Sistema Incluso | Venda Nacional" />
+  <meta property="og:description" content="Equipamento + sistema + configuração + suporte. Envio para todo o Brasil. Fale no WhatsApp." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a2a;
+      --card2:#0f1624;
+      --text:#e9eefc;
+      --muted:#a9b4d0;
+      --line:rgba(255,255,255,.10);
+      --accent:#22c55e; /* verde */
+      --accent2:#f59e0b; /* amarelo */
+      --danger:#ef4444;
+      --shadow: 0 12px 35px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(34,197,94,.20), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(245,158,11,.18), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.35;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,15,23,.72);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:180px;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+    }
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+    }
+    .btn:hover{background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18)}
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(34,197,94,.80));
+      border-color: rgba(34,197,94,.30);
+      color: #07110a;
+      box-shadow: 0 18px 35px rgba(34,197,94,.20);
+    }
+    .btn-primary:hover{background: linear-gradient(135deg, rgba(34,197,94,1), rgba(34,197,94,.86))}
+    .btn-wpp{
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(16,185,129,1));
+      border-color: rgba(34,197,94,.35);
+      color:#06110a;
+    }
+    .btn-outline{
+      background: transparent;
+      border-color: rgba(255,255,255,.18);
+    }
+    .hero{
+      padding:46px 0 24px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .brand{min-width:auto}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(18,26,42,.92), rgba(15,22,36,.92));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card{
+      padding:28px;
+    }
+    .kicker{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-bottom:14px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: 40px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    @media (max-width: 480px){
+      h1{font-size: 32px;}
+    }
+    .sub{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .bullets{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px 12px;
+      margin: 14px 0 18px;
+    }
+    @media (max-width: 560px){
+      .bullets{grid-template-columns:1fr;}
+    }
+    .bullet{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius:14px;
+    }
+    .ic{
+      width:22px; height:22px; border-radius:8px;
+      background: rgba(34,197,94,.20);
+      border:1px solid rgba(34,197,94,.25);
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+    .ic svg{width:14px;height:14px; fill: var(--accent)}
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 10px;
+    }
+    .small{
+      margin-top:12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .side-card{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .side-title{
+      font-weight:800;
+      font-size:16px;
+      margin:0;
+    }
+    .form{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .field{
+      display:flex; flex-direction:column; gap:6px;
+    }
+    label{
+      font-size:12px;
+      color: var(--muted);
+    }
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:90px; resize: vertical;}
+    input::placeholder, textarea::placeholder{color: rgba(169,180,208,.65)}
+    .note{
+      font-size:12px; color: var(--muted);
+      border:1px dashed rgba(255,255,255,.16);
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.02);
+    }
+    .section{
+      padding: 18px 0;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 900px){
+      .grid3{grid-template-columns: 1fr;}
+    }
+    .mini{
+      padding:18px;
+    }
+    .mini h3{margin:0 0 8px; font-size:16px}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+    .title{
+      display:flex; align-items:end; justify-content:space-between; gap:12px;
+      margin: 8px 0 12px;
+    }
+    .title h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .title span{color:var(--muted); font-size:13px}
+    .list{
+      display:grid; gap:10px;
+    }
+    .item{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .item strong{display:block; margin-bottom:3px}
+    .item div{color:var(--muted); font-size:14px}
+    .faq details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px 14px;
+    }
+    .faq details + details{margin-top:10px}
+    .faq summary{
+      cursor:pointer;
+      font-weight:800;
+      list-style:none;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{color:var(--muted); margin:10px 0 0; font-size:14px}
+    .footer{
+      padding:24px 0 90px;
+      color: var(--muted);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      margin-top: 10px;
+    }
+    .sticky-wpp{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      padding:10px 12px;
+      background: rgba(11,15,23,.86);
+      backdrop-filter: blur(10px);
+      border-top:1px solid var(--line);
+      display:none;
+      z-index:60;
+    }
+    .sticky-wpp .wrap{display:flex; gap:10px; align-items:center; justify-content:space-between;}
+    .sticky-wpp .txt{display:flex; flex-direction:column; gap:2px}
+    .sticky-wpp .txt b{font-size:14px}
+    .sticky-wpp .txt span{font-size:12px; color:var(--muted)}
+    @media (max-width: 900px){
+      .sticky-wpp{display:block;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>BOX PDV</span>
+          <span class="tag">A solução definitiva </span>
+        </div>
+        <a class="btn btn-wpp" id="wppTop" href="#" rel="noopener">
+          <!-- WhatsApp icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.44 0 .08 5.36.08 11.96c0 2.11.55 4.16 1.6 5.97L0 24l6.23-1.64a11.9 11.9 0 0 0 5.81 1.48h.01c6.6 0 11.96-5.36 11.96-11.96 0-3.19-1.24-6.19-3.49-8.4ZM12.05 21.8h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.21-3.7.97.99-3.61-.23-.37a9.81 9.81 0 1 1 8.33 4.59Zm5.73-7.83c-.31-.16-1.86-.92-2.15-1.03-.29-.1-.5-.16-.71.16-.21.31-.82 1.03-1.01 1.24-.19.21-.37.23-.69.08-.31-.16-1.33-.49-2.54-1.56-.94-.84-1.57-1.88-1.76-2.19-.19-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.19.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.64 0 1.56 1.13 3.07 1.29 3.28.16.21 2.22 3.39 5.38 4.75.75.32 1.34.51 1.79.65.75.24 1.43.21 1.97.13.6-.09 1.86-.76 2.12-1.5.26-.73.26-1.36.18-1.5-.08-.13-.29-.21-.6-.37Z"/>
+          </svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="kicker">
+            <span class="tag">📦 Instalação em todo território nacional</span>
+            <span class="tag">⚙️ Sistema Intuitivo</span>
+            <span class="tag">🖥️ Suporte remoto</span>
+          </div>
+
+          <h1>BOX PDV  Sistema completo para automação do seu negócio</h1>
+          <p class="sub">
+            Sistema + configuração + suporte — tudo pronto para você <b>vender com rapidez, controle e segurança</b>.
+          </p>
+
+          <div class="bullets">
+            <div class="bullet">
+              <span class="ic">
+                <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+              </span>
+              <div><b>Pronto para usar</b><br><span style="color:var(--muted);font-size:13px">Chega configurado</span></div>
+            </div>
+            <div class="bullet">
+              <span class="ic">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 14h-2v-2h2v2Zm0-4h-2V6h2v6Z"/></svg>
+              </span>
+              <div><b>Sem dor de cabeça</b><br><span style="color:var(--muted);font-size:13px">Implantação simples</span></div>
+            </div>
+            <div class="bullet">
+              <span class="ic">
+                <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4Zm0 20c-3.9-1.2-7-5.5-7-10V6.3L12 3l7 3.3V11c0 4.5-3.1 8.8-7 10Z"/></svg>
+              </span>
+              <div><b>Mais segurança</b><br><span style="color:var(--muted);font-size:13px">Operação estável</span></div>
+            </div>
+            <div class="bullet">
+              <span class="ic">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4Zm0 7h16v2H4v-2Zm0 7h16v2H4v-2Z"/></svg>
+              </span>
+              <div><b>Controle e relatórios</b><br><span style="color:var(--muted);font-size:13px">Gestão do caixa</span></div>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" id="ctaHero" href="#" rel="noopener">Solicitar orçamento no WhatsApp</a>
+            <a class="btn btn-outline" href="#o-que-recebe">Ver o que está incluso</a>
+          </div>
+
+          <div class="small">📲 WhatsApp: <b>(11) 94504-7842</b> • Atendimento nacional</div>
+        </div>
+
+        <!-- Side lead form -->
+        <aside class="card side-card" id="contato">
+          <p class="side-title">Receba atendimento rápido</p>
+          <div class="note">
+            Preencha 3 dados e clique em <b>Enviar no WhatsApp</b>. A mensagem vai pronta.
+          </div>
+
+          <form class="form" id="leadForm">
+            <div class="field">
+              <label for="segmento">Tipo de comércio</label>
+              <select id="segmento" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>Mercado / Supermercado</option>
+                <option>Açougue</option>
+                <option>Padaria</option>
+                <option>Conveniência</option>
+                <option>Loja (geral)</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="cidade">Cidade/Estado</label>
+              <input id="cidade" type="text" placeholder="Ex.: São Paulo/SP" required />
+            </div>
+
+            <div class="field">
+              <label for="qtd">Quantidade de caixas</label>
+              <select id="qtd" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>1 caixa</option>
+                <option>2 caixas</option>
+                <option>3 caixas</option>
+                <option>4+ caixas</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="msg">Observação (opcional)</label>
+              <textarea id="msg" placeholder="Ex.: já tenho impressora, preciso integrar, quero entrega rápida..."></textarea>
+            </div>
+
+            <button class="btn btn-wpp" type="submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.44 0 .08 5.36.08 11.96c0 2.11.55 4.16 1.6 5.97L0 24l6.23-1.64a11.9 11.9 0 0 0 5.81 1.48h.01c6.6 0 11.96-5.36 11.96-11.96 0-3.19-1.24-6.19-3.49-8.4Z"/>
+              </svg>
+              Enviar no WhatsApp
+            </button>
+
+            <div class="small">Ao clicar, você será direcionado para o WhatsApp com a mensagem pronta.</div>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sections -->
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="title">
+          <h2>Por que trocar seu PDV agora</h2>
+          <span>Problemas comuns que geram perda de dinheiro</span>
+        </div>
+
+        <div class="grid3">
+          <div class="card mini">
+            <h3>Travas e lentidão</h3>
+            <p>Fila, estresse e venda perdida em horário de pico.</p>
+          </div>
+          <div class="card mini">
+            <h3>Erros no fechamento</h3>
+            <p>Diferenças no caixa e retrabalho no fim do dia.</p>
+          </div>
+          <div class="card mini">
+            <h3>Falta de controle</h3>
+            <p>Sem relatórios, fica difícil enxergar o que realmente está acontecendo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="o-que-recebe">
+      <div class="wrap">
+        <div class="title">
+          <h2>O que você recebe no BOX PDV</h2>
+          <span>Oferta única • Sistema incluso</span>
+        </div>
+
+        <div class="list">
+          <div class="item">
+            <span class="ic">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </span>
+            <div><strong>Conhecimento técnico</strong>Sua equipe interna ganha parceiros, para lidar com os desafios da tecnologia</div>
+          </div>
+          <div class="item">
+            <span class="ic">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </span>
+            <div><strong>Sistema de vendas robusto</strong>Pronto para operar no dia a dia do comércio.</div>
+          </div>
+          <div class="item">
+            <span class="ic">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </span>
+            <div><strong>Configuração personalizada</strong>Ajustado para seu segmento (mercado, açougue, padaria, loja etc.).</div>
+          </div>
+          <div class="item">
+            <span class="ic">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </span>
+            <div><strong>Integração com Periféricos</strong>Preparado para integração (conforme seu cenário e equipamentos).</div>
+          </div>
+          <div class="item">
+            <span class="ic">
+              <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+            </span>
+            <div><strong>Suporte remoto nacional</strong>Atendimento via WhatsApp e acesso remoto quando necessário.</div>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top:14px">
+          <a class="btn btn-primary" id="ctaMid" href="#" rel="noopener">Quero orçamento no WhatsApp</a>
+          <a class="btn btn-outline" href="#faq">Tirar dúvidas</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="title">
+          <h2>Para quem é</h2>
+          <span>Funciona em qualquer cidade do Brasil</span>
+        </div>
+
+        <div class="grid3">
+          <div class="card mini">
+            <h3>Mercados e supermercados</h3>
+            <p>Agilidade no checkout, estabilidade e controle de caixa.</p>
+          </div>
+          <div class="card mini">
+            <h3>Açougues e padarias</h3>
+            <p>Operação rápida no balcão e suporte quando precisar.</p>
+          </div>
+          <div class="card mini">
+            <h3>Lojas e comércios em geral</h3>
+            <p>Atendimento mais profissional e redução de erros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="title">
+          <h2>Dúvidas frequentes</h2>
+          <span>Respostas rápidas</span>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>O BOX PDV já chega pronto para usar?</summary>
+            <p>Sim. O equipamento vai preparado e o sistema já vem instalado. Você recebe orientação para começar a operar rapidamente.</p>
+          </details>
+
+          <details>
+            <summary>Atende qualquer estado/cidade do Brasil?</summary>
+            <p>Sim. O envio é nacional e o suporte é remoto (WhatsApp + acesso remoto quando necessário).</p>
+          </details>
+
+          <details>
+            <summary>Funciona para mercado, açougue, padaria e loja?</summary>
+            <p>Sim. A configuração é ajustada de acordo com o tipo de comércio.</p>
+          </details>
+
+          <details>
+            <summary>Como faço para receber orçamento?</summary>
+            <p>Clique em qualquer botão de WhatsApp e informe: tipo de comércio, cidade/estado e quantidade de caixas.</p>
+          </details>
+        </div>
+
+        <div class="cta-row" style="margin-top:14px">
+          <a class="btn btn-wpp" id="ctaBottom" href="#" rel="noopener">
+            Falar agora no WhatsApp • (11) 94504-7842
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+          <div>© <span id="year"></span> • BOX PDV • Atendimento nacional</div>
+          <div>WhatsApp: <b>(11) 94504-7842</b></div>
+        </div>
+        <div style="margin-top:10px;">
+          Observação: Ajuste os itens “integração”, “licença” e detalhes técnicos conforme sua oferta real para evitar ruído comercial.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Sticky WhatsApp (mobile) -->
+  <div class="sticky-wpp">
+    <div class="wrap">
+      <div class="txt">
+        <b>BOX PDV com sistema incluso</b>
+        <span>Toque para falar no WhatsApp</span>
+      </div>
+      <a class="btn btn-wpp" id="wppSticky" href="#" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    // ===== CONFIG =====
+    const WHATSAPP_NUMBER = "5511945047842"; // 55 + DDD + número
+    const baseMsg = "Olá! Quero informações sobre o BOX PDV com sistema incluso.";
+
+    function buildWaLink(extraText){
+      const text = extraText ? `${baseMsg}\n\n${extraText}` : baseMsg;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    }
+
+    // Set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Hook buttons
+    const wppTop = document.getElementById("wppTop");
+    const ctaHero = document.getElementById("ctaHero");
+    const ctaMid = document.getElementById("ctaMid");
+    const ctaBottom = document.getElementById("ctaBottom");
+    const wppSticky = document.getElementById("wppSticky");
+
+    const defaultLink = buildWaLink("Meu comércio é: ____\nCidade/Estado: ____\nQuantidade de caixas: ____");
+    [wppTop, ctaHero, ctaMid, ctaBottom, wppSticky].forEach(a => a.href = defaultLink);
+
+    // Lead form -> open WhatsApp with filled message
+    document.getElementById("leadForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const segmento = document.getElementById("segmento").value;
+      const cidade = document.getElementById("cidade").value.trim();
+      const qtd = document.getElementById("qtd").value;
+      const msg = document.getElementById("msg").value.trim();
+
+      const extra =
+        `Meu comércio é: ${segmento}\n` +
+        `Cidade/Estado: ${cidade}\n` +
+        `Quantidade de caixas: ${qtd}\n` +
+        (msg ? `Observação: ${msg}\n` : "");
+
+      window.open(buildWaLink(extra), "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
