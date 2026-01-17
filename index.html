@@ -5,354 +5,241 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rede Marquesa - Planilhas</title>
 
-  <!-- Fonte moderna (Inter) + fallback -->
+  <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta "Marquesa" (vinho/vermelho escuro) + neutros */
-      --bg-1: #160709;
-      --bg-2: #2a0b10;
-
-      --card: rgba(255,255,255,0.08);
-      --card-border: rgba(255,255,255,0.14);
-
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.78);
-      --muted-2: rgba(255,255,255,0.60);
-
-      --brand: #8b0f1a;     /* vinho */
-      --brand-2: #b51224;   /* vermelho mais vivo (detalhes) */
-      --focus: rgba(255, 90, 110, 0.28);
-
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --shadow-soft: 0 12px 28px rgba(0,0,0,0.35);
-
-      --radius: 16px;
-
-      --btn-bg: rgba(0,0,0,0.16);
-      --btn-border: rgba(255,255,255,0.14);
-      --btn-shadow: 0 10px 22px rgba(0,0,0,0.28);
-
-      --whatsapp: #25D366;
-      --whatsapp-hover: #1ebe5d;
+      --bg-1:#160709;
+      --bg-2:#2a0b10;
+      --card:rgba(255,255,255,0.08);
+      --card-border:rgba(255,255,255,0.14);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,0.78);
+      --muted-2:rgba(255,255,255,0.6);
+      --brand:#8b0f1a;
+      --brand-2:#b51224;
+      --focus:rgba(255,90,110,0.28);
+      --shadow:0 20px 60px rgba(0,0,0,0.45);
+      --btn-bg:rgba(0,0,0,0.16);
+      --btn-border:rgba(255,255,255,0.14);
+      --btn-shadow:0 10px 22px rgba(0,0,0,0.28);
+      --radius:16px;
+      --whatsapp:#25D366;
+      --whatsapp-hover:#1ebe5d;
     }
 
-    *{ box-sizing: border-box; }
+    *{box-sizing:border-box}
 
     body{
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
-      color: var(--text);
+      margin:0;
+      min-height:100vh;
+      font-family:Inter,"Segoe UI",Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(181,18,36,0.22), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(139,15,26,0.18), transparent 60%),
-        linear-gradient(135deg, var(--bg-2), var(--bg-1));
-      display: grid;
-      place-items: center;
-      padding: 26px 16px;
+        radial-gradient(900px 500px at 15% 10%, rgba(181,18,36,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(139,15,26,.18), transparent 60%),
+        linear-gradient(135deg,var(--bg-2),var(--bg-1));
+      display:grid;
+      place-items:center;
+      padding:26px 16px;
     }
 
-    .wrap{
-      width: 100%;
-      max-width: 680px; /* PC: 520–680px */
-    }
+    .wrap{width:100%;max-width:680px}
 
     .card{
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 26px 22px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Faixa discreta corporativa */
-    .card::before{
-      content:"";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(181,18,36,0.20), transparent 40%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), transparent 30%);
-      opacity: 0.9;
+      background:var(--card);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius);
+      padding:26px 22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
     }
 
     .header{
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .title-area{
-      display: grid;
-      gap: 6px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      margin-bottom:18px;
     }
 
     h1{
-      margin: 0;
-      font-size: 28px;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      font-weight: 700;
+      margin:0;
+      font-size:28px;
+      font-weight:700;
     }
 
     .subtitle{
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.35;
-      color: var(--muted);
-      font-weight: 500;
+      margin:6px 0 0;
+      font-size:15px;
+      color:var(--muted);
     }
 
     .badge{
-      position: relative;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.18);
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      user-select: none;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(0,0,0,.2);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
 
     .badge .dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--brand-2);
-      box-shadow: 0 0 0 4px rgba(181,18,36,0.18);
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--brand-2);
     }
 
     .grid{
-      position: relative;
-      display: grid;
-      gap: 12px;
-      margin-top: 10px;
+      display:grid;
+      gap:12px;
+      margin-top:10px;
     }
 
     .btn{
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      width: 100%;
-      padding: 16px 16px;
-      border-radius: 14px;
-
-      text-decoration: none;
-      color: var(--text);
-      background: var(--btn-bg);
-      border: 1px solid var(--btn-border);
-      box-shadow: var(--btn-shadow);
-
-      transition:
-        transform 180ms ease,
-        box-shadow 180ms ease,
-        border-color 180ms ease,
-        background 180ms ease;
-      -webkit-tap-highlight-color: transparent;
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      width:100%;
+      padding:16px;
+      border-radius:14px;
+      text-decoration:none;
+      color:var(--text);
+      background:var(--btn-bg);
+      border:1px solid var(--btn-border);
+      box-shadow:var(--btn-shadow);
+      transition:.2s ease;
+      -webkit-tap-highlight-color:transparent;
     }
 
-    /* Detalhe lateral (não muda o fundo inteiro) */
     .btn::before{
       content:"";
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      bottom: 10px;
-      width: 4px;
-      border-radius: 999px;
-      background: rgba(181,18,36,0.85);
-      box-shadow: 0 0 0 4px rgba(181,18,36,0.10);
+      position:absolute;
+      left:10px;
+      top:10px;
+      bottom:10px;
+      width:4px;
+      border-radius:999px;
+      background:var(--brand-2);
     }
 
     .btn .icon{
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      flex: 0 0 42px;
-      margin-left: 10px; /* empurra por conta da faixa */
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      margin-left:10px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:20px;
     }
 
-    .btn .text{
-      display: grid;
-      gap: 2px;
-      min-width: 0;
+    .btn strong{
+      font-size:16px;
+      font-weight:600;
     }
 
-    .btn .text strong{
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 1.2;
+    .btn span{
+      font-size:13px;
+      color:var(--muted-2);
     }
 
-    .btn .text span{
-      font-size: 13px;
-      color: var(--muted-2);
-      line-height: 1.25;
-    }
-
-    /* Hover desktop: elevar + sombra */
-    @media (hover: hover) and (pointer: fine){
-      .btn:hover{
-        transform: translateY(-3px);
-        box-shadow: 0 16px 34px rgba(0,0,0,0.42);
-        border-color: rgba(255,255,255,0.22);
-        background: rgba(0,0,0,0.22);
-      }
-    }
-
-    /* Active mobile: “clique” */
-    .btn:active{
-      transform: scale(0.985);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.30);
-    }
-
-    /* Foco acessível */
+    .btn:hover{transform:translateY(-3px)}
+    .btn:active{transform:scale(.98)}
     .btn:focus-visible{
-      outline: none;
-      box-shadow:
-        0 0 0 4px var(--focus),
-        0 16px 34px rgba(0,0,0,0.42);
-      border-color: rgba(255,255,255,0.28);
+      outline:none;
+      box-shadow:0 0 0 4px var(--focus);
     }
 
-    /* Variações discretas: apenas cor da faixa + ícone */
-    .btn.green::before{ background: rgba(70, 200, 140, 0.95); box-shadow: 0 0 0 4px rgba(70,200,140,0.12); }
-    .btn.blue::before{ background: rgba(110, 170, 255, 0.95); box-shadow: 0 0 0 4px rgba(110,170,255,0.12); }
-    .btn.amber::before{ background: rgba(255, 186, 74, 0.95); box-shadow: 0 0 0 4px rgba(255,186,74,0.12); }
-    .btn.purple::before{ background: rgba(180, 120, 255, 0.95); box-shadow: 0 0 0 4px rgba(180,120,255,0.12); }
+    .green::before{background:#46c88c}
+    .amber::before{background:#ffba4a}
+    .blue::before{background:#6eaaff}
+    .purple::before{background:#b478ff}
 
     .footer{
-      position: relative;
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.14);
-      display: grid;
-      gap: 10px;
-      text-align: center;
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.14);
+      text-align:center;
+      display:grid;
+      gap:10px;
     }
 
-    .tagline{
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
-
-    .dev{
-      font-size: 12px;
-      color: var(--muted-2);
-    }
+    .tagline{font-size:13px;color:var(--muted)}
+    .dev{font-size:12px;color:var(--muted-2)}
 
     .whatsapp{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      margin-top: 6px;
-      padding: 12px 14px;
-      border-radius: 999px;
-
-      background: var(--whatsapp);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.30);
-
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-      -webkit-tap-highlight-color: transparent;
+      margin-top:6px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      background:var(--whatsapp);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
     }
 
-    @media (hover: hover) and (pointer: fine){
-      .whatsapp:hover{
-        background: var(--whatsapp-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 16px 34px rgba(0,0,0,0.36);
-      }
-    }
+    .whatsapp:hover{background:var(--whatsapp-hover)}
 
-    .whatsapp:active{
-      transform: scale(0.985);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.26);
-    }
-
-    .whatsapp:focus-visible{
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(37,211,102,0.25), 0 16px 34px rgba(0,0,0,0.36);
-    }
-
-    /* Ajustes mobile */
-    @media (max-width: 420px){
-      .card{ padding: 22px 16px; }
-      h1{ font-size: 26px; }
-      .subtitle{ font-size: 14px; }
-      .badge{ display: none; } /* limpa o topo no celular */
-      .btn{ padding: 15px 14px; }
-      .btn .text strong{ font-size: 15px; }
+    @media(max-width:420px){
+      .badge{display:none}
+      h1{font-size:26px}
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="card" aria-label="Central de controle operacional">
+    <section class="card">
       <header class="header">
-        <div class="title-area">
+        <div>
           <h1>Rede Marquesa</h1>
           <p class="subtitle">Central de controle operacional</p>
         </div>
-
-        <div class="badge" aria-hidden="true">
-          <span class="dot"></span>
-          <span>Dashboard</span>
+        <div class="badge">
+          <span class="dot"></span> Dashboard
         </div>
       </header>
 
-      <nav class="grid" aria-label="Links para planilhas">
-        <!-- Mantém o link original do seu arquivo -->
+      <nav class="grid">
+
+        <!-- ✅ NOVO BOTÃO – PRIMEIRO -->
         <a class="btn green"
-           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir Folhagem Rede Marquesa (Google Sheets)">
-          <div class="icon" aria-hidden="true">📊</div>
-          <div class="text">
-            <strong>Folhagem Rede Marquesa</strong>
-            <span>Planilha de acompanhamento</span>
+           href="https://docs.google.com/spreadsheets/d/1rbmKSqapwc8O7-LE38cyw8I8ioje9aHhFS5nsa31WYo/edit?gid=74078894#gid=74078894"
+           target="_blank">
+          <div class="icon">📝</div>
+          <div>
+            <strong>Pedido Semanal – Lojas</strong>
+            <span>Planejamento e reposição</span>
           </div>
         </a>
 
-        <!-- Mantém o link que já está na página -->
+        <a class="btn green"
+           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk"
+           target="_blank">
+          <div class="icon">📊</div>
+          <div>
+            <strong>Folhagem Rede Marquesa</strong>
+            <span>Acompanhamento geral</span>
+          </div>
+        </a>
+
         <a class="btn amber"
            href="https://docs.google.com/spreadsheets/d/1iM-7YOlpw63EcOxjE-dzgVt5aAd0kScLRsVpTinA5X0/edit?usp=drivesdk"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir Marquesa Hortfrut (Google Sheets)">
-          <div class="icon" aria-hidden="true">🥬</div>
-          <div class="text">
+           target="_blank">
+          <div class="icon">🥬</div>
+          <div>
             <strong>Marquesa Hortfrut</strong>
             <span>Controle de hortifruti</span>
           </div>
@@ -360,10 +247,9 @@
 
         <a class="btn"
            href="https://docs.google.com/spreadsheets/d/1zn5bxScn86UEQdGnEZwB8hNAqooi_jA1ATexvyTJL20/edit?usp=drivesdk"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir Quantidade de Carne – Lojas (Google Sheets)">
-          <div class="icon" aria-hidden="true">🥩</div>
-          <div class="text">
+           target="_blank">
+          <div class="icon">🥩</div>
+          <div>
             <strong>Quantidade de Carne – Lojas</strong>
             <span>Volume por unidade</span>
           </div>
@@ -371,37 +257,31 @@
 
         <a class="btn blue"
            href="https://docs.google.com/spreadsheets/d/1uBI1BlIvf5hnaHA5IFgnRt3mfq81yJgS1Vwiky24arw/edit?gid=0#gid=0"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir Caminhões – Entregas – Rede Marquesa (Google Sheets)">
-          <div class="icon" aria-hidden="true">🚚</div>
-          <div class="text">
+           target="_blank">
+          <div class="icon">🚚</div>
+          <div>
             <strong>Caminhões – Entregas – Rede Marquesa</strong>
-            <span>Saídas, rotas e entregas</span>
+            <span>Logística e rotas</span>
           </div>
         </a>
 
         <a class="btn purple"
            href="https://docs.google.com/spreadsheets/d/1aGqmEc_VgQsqWQ80Pfu53aE3032ofi3nM-gjNA0fZvQ/edit?gid=920480890#gid=920480890"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir Relação de Miudezas – Rede Marquesa (Google Sheets)">
-          <div class="icon" aria-hidden="true">🧺</div>
-          <div class="text">
+           target="_blank">
+          <div class="icon">🧺</div>
+          <div>
             <strong>Relação de Miudezas – Rede Marquesa</strong>
-            <span>Lista e padronização</span>
+            <span>Padronização de itens</span>
           </div>
         </a>
+
       </nav>
 
       <footer class="footer">
         <div class="tagline">Controle • Organização • Decisão com dados</div>
         <div class="dev">Desenvolvido por Marcos Lima Duarte</div>
-
-        <a class="whatsapp"
-           href="https://wa.me/5511945047842"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Abrir WhatsApp para (11) 94504-7842">
-          <span aria-hidden="true">💬</span>
-          <span>WhatsApp (11) 94504-7842</span>
+        <a class="whatsapp" href="https://wa.me/5511945047842" target="_blank">
+          💬 WhatsApp (11) 94504-7842
         </a>
       </footer>
     </section>
