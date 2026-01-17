@@ -31,7 +31,7 @@
       --whatsapp-hover:#1ebe5d;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
 
     body{
       margin:0;
@@ -47,7 +47,7 @@
       padding:26px 16px;
     }
 
-    .wrap{width:100%;max-width:680px}
+    .wrap{ width:100%; max-width:680px; }
 
     .card{
       background:var(--card);
@@ -56,6 +56,7 @@
       padding:26px 22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
     .header{
@@ -66,17 +67,8 @@
       margin-bottom:18px;
     }
 
-    h1{
-      margin:0;
-      font-size:28px;
-      font-weight:700;
-    }
-
-    .subtitle{
-      margin:6px 0 0;
-      font-size:15px;
-      color:var(--muted);
-    }
+    h1{ margin:0; font-size:28px; font-weight:700; }
+    .subtitle{ margin:6px 0 0; font-size:15px; color:var(--muted); }
 
     .badge{
       padding:10px 14px;
@@ -88,6 +80,7 @@
       display:flex;
       align-items:center;
       gap:8px;
+      white-space:nowrap;
     }
 
     .badge .dot{
@@ -97,11 +90,7 @@
       background:var(--brand-2);
     }
 
-    .grid{
-      display:grid;
-      gap:12px;
-      margin-top:10px;
-    }
+    .grid{ display:grid; gap:12px; margin-top:10px; }
 
     .btn{
       position:relative;
@@ -110,60 +99,79 @@
       gap:12px;
       width:100%;
       padding:16px;
+      padding-left:72px; /* espaço para número */
       border-radius:14px;
       text-decoration:none;
       color:var(--text);
       background:var(--btn-bg);
       border:1px solid var(--btn-border);
       box-shadow:var(--btn-shadow);
-      transition:.2s ease;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
       -webkit-tap-highlight-color:transparent;
     }
 
+    /* Número (badge) */
+    .step{
+      position:absolute;
+      left:16px;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:var(--brand-2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:14px;
+      box-shadow:0 6px 14px rgba(0,0,0,.35);
+      user-select:none;
+    }
+
+    /* Linha separadora discreta */
     .btn::before{
       content:"";
       position:absolute;
-      left:10px;
+      left:60px;
       top:10px;
       bottom:10px;
-      width:4px;
+      width:3px;
       border-radius:999px;
-      background:var(--brand-2);
+      background:rgba(255,255,255,.18);
     }
 
-    .btn .icon{
+    .icon{
       width:42px;
       height:42px;
       border-radius:12px;
       display:grid;
       place-items:center;
-      margin-left:10px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
       font-size:20px;
+      flex:0 0 42px;
     }
 
-    .btn strong{
-      font-size:16px;
-      font-weight:600;
+    strong{ font-size:16px; font-weight:600; line-height:1.2; }
+    span{ font-size:13px; color:var(--muted-2); line-height:1.25; }
+
+    @media (hover:hover) and (pointer:fine){
+      .btn:hover{
+        transform:translateY(-3px);
+        box-shadow:0 16px 34px rgba(0,0,0,.42);
+        border-color:rgba(255,255,255,.22);
+        background:rgba(0,0,0,.22);
+      }
     }
 
-    .btn span{
-      font-size:13px;
-      color:var(--muted-2);
+    .btn:active{
+      transform:scale(.985);
+      box-shadow:0 8px 18px rgba(0,0,0,.30);
     }
 
-    .btn:hover{transform:translateY(-3px)}
-    .btn:active{transform:scale(.98)}
     .btn:focus-visible{
       outline:none;
-      box-shadow:0 0 0 4px var(--focus);
+      box-shadow:0 0 0 4px var(--focus), 0 16px 34px rgba(0,0,0,.42);
     }
-
-    .green::before{background:#46c88c}
-    .amber::before{background:#ffba4a}
-    .blue::before{background:#6eaaff}
-    .purple::before{background:#b478ff}
 
     .footer{
       margin-top:18px;
@@ -174,13 +182,14 @@
       gap:10px;
     }
 
-    .tagline{font-size:13px;color:var(--muted)}
-    .dev{font-size:12px;color:var(--muted-2)}
+    .tagline{ font-size:13px; color:var(--muted); }
+    .dev{ font-size:12px; color:var(--muted-2); }
 
     .whatsapp{
       margin-top:6px;
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       padding:12px 16px;
       border-radius:999px;
@@ -188,90 +197,117 @@
       color:#fff;
       text-decoration:none;
       font-weight:600;
+      font-size:14px;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow:0 12px 26px rgba(0,0,0,.30);
     }
 
-    .whatsapp:hover{background:var(--whatsapp-hover)}
+    @media (hover:hover) and (pointer:fine){
+      .whatsapp:hover{
+        background:var(--whatsapp-hover);
+        transform:translateY(-2px);
+        box-shadow:0 16px 34px rgba(0,0,0,.36);
+      }
+    }
+
+    .whatsapp:active{ transform:scale(.985); }
+
+    .whatsapp:focus-visible{
+      outline:none;
+      box-shadow:0 0 0 4px rgba(37,211,102,.25), 0 16px 34px rgba(0,0,0,.36);
+    }
 
     @media(max-width:420px){
-      .badge{display:none}
-      h1{font-size:26px}
+      .badge{ display:none; }
+      h1{ font-size:26px; }
+      .subtitle{ font-size:14px; }
+      .card{ padding:22px 16px; }
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="card">
+    <section class="card" aria-label="Central de controle operacional">
       <header class="header">
         <div>
           <h1>Rede Marquesa</h1>
-          <p class="subtitle">Central de controle operacional</p>
+          <p class="subtitle">Central de Controle Operacional - Escolha uma opções abaixo:</p>
         </div>
-        <div class="badge">
-          <span class="dot"></span> Dashboard
-        </div>
+        <div class="badge" aria-hidden="true"><span class="dot"></span> Dashboard</div>
       </header>
 
-      <nav class="grid">
+      <nav class="grid" aria-label="Links para planilhas">
 
-        <!-- ✅ NOVO BOTÃO – PRIMEIRO -->
-        <a class="btn green"
+        <!-- 1 -->
+        <a class="btn"
            href="https://docs.google.com/spreadsheets/d/1rbmKSqapwc8O7-LE38cyw8I8ioje9aHhFS5nsa31WYo/edit?gid=74078894#gid=74078894"
-           target="_blank">
-          <div class="icon">📝</div>
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">1</div>
+          <div class="icon" aria-hidden="true">📝</div>
           <div>
             <strong>Pedido Semanal – Lojas</strong>
             <span>Planejamento e reposição</span>
           </div>
         </a>
 
-        <a class="btn green"
-           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk"
-           target="_blank">
-          <div class="icon">📊</div>
+        <!-- 2 -->
+        <a class="btn"
+           href="https://docs.google.com/spreadsheets/d/1aGqmEc_VgQsqWQ80Pfu53aE3032ofi3nM-gjNA0fZvQ/edit?gid=920480890#gid=920480890"
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">2</div>
+          <div class="icon" aria-hidden="true">🧺</div>
           <div>
-            <strong>Folhagem Rede Marquesa</strong>
-            <span>Acompanhamento geral</span>
+            <strong>Relação de Miudezas – Lojas</strong>
+            <span>Padronização de itens</span>
           </div>
         </a>
 
-        <a class="btn amber"
-           href="https://docs.google.com/spreadsheets/d/1iM-7YOlpw63EcOxjE-dzgVt5aAd0kScLRsVpTinA5X0/edit?usp=drivesdk"
-           target="_blank">
-          <div class="icon">🥬</div>
-          <div>
-            <strong>Marquesa Hortfrut</strong>
-            <span>Controle de hortifruti</span>
-          </div>
-        </a>
-
+        <!-- 3 (✅ Carnes na terceira posição) -->
         <a class="btn"
            href="https://docs.google.com/spreadsheets/d/1zn5bxScn86UEQdGnEZwB8hNAqooi_jA1ATexvyTJL20/edit?usp=drivesdk"
-           target="_blank">
-          <div class="icon">🥩</div>
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">3</div>
+          <div class="icon" aria-hidden="true">🥩</div>
           <div>
             <strong>Quantidade de Carne – Lojas</strong>
             <span>Volume por unidade</span>
           </div>
         </a>
 
-        <a class="btn blue"
-           href="https://docs.google.com/spreadsheets/d/1uBI1BlIvf5hnaHA5IFgnRt3mfq81yJgS1Vwiky24arw/edit?gid=0#gid=0"
-           target="_blank">
-          <div class="icon">🚚</div>
+        <!-- 4 -->
+        <a class="btn"
+           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk"
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">4</div>
+          <div class="icon" aria-hidden="true">📊</div>
           <div>
-            <strong>Caminhões – Entregas – Rede Marquesa</strong>
-            <span>Logística e rotas</span>
+            <strong>Folhagem - Lojas</strong>
+            <span>Acompanhamento geral</span>
           </div>
         </a>
 
-        <a class="btn purple"
-           href="https://docs.google.com/spreadsheets/d/1aGqmEc_VgQsqWQ80Pfu53aE3032ofi3nM-gjNA0fZvQ/edit?gid=920480890#gid=920480890"
-           target="_blank">
-          <div class="icon">🧺</div>
+        <!-- 5 -->
+        <a class="btn"
+           href="https://docs.google.com/spreadsheets/d/1iM-7YOlpw63EcOxjE-dzgVt5aAd0kScLRsVpTinA5X0/edit?usp=drivesdk"
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">5</div>
+          <div class="icon" aria-hidden="true">🥬</div>
           <div>
-            <strong>Relação de Miudezas – Rede Marquesa</strong>
-            <span>Padronização de itens</span>
+            <strong>Hortfrut - Lojas</strong>
+            <span>Controle de hortifruti</span>
+          </div>
+        </a>
+
+        <!-- 6 -->
+        <a class="btn"
+           href="https://docs.google.com/spreadsheets/d/1uBI1BlIvf5hnaHA5IFgnRt3mfq81yJgS1Vwiky24arw/edit?gid=0#gid=0"
+           target="_blank" rel="noopener noreferrer">
+          <div class="step">6</div>
+          <div class="icon" aria-hidden="true">🚚</div>
+          <div>
+            <strong>Caminhões – Entregas – Lojas</strong>
+            <span>Logística e rotas</span>
           </div>
         </a>
 
@@ -280,7 +316,7 @@
       <footer class="footer">
         <div class="tagline">Controle • Organização • Decisão com dados</div>
         <div class="dev">Desenvolvido por Marcos Lima Duarte</div>
-        <a class="whatsapp" href="https://wa.me/5511945047842" target="_blank">
+        <a class="whatsapp" href="https://wa.me/5511945047842" target="_blank" rel="noopener noreferrer">
           💬 WhatsApp (11) 94504-7842
         </a>
       </footer>
