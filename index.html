@@ -1,170 +1,410 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rede Marquesa - Planilhas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rede Marquesa - Planilhas</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #b30000, #7a0000);
-            color: #ffffff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  <!-- Fonte moderna (Inter) + fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.35);
-            padding: 40px 30px;
-            border-radius: 12px;
-            max-width: 420px;
-            width: 90%;
-        }
+  <style>
+    :root{
+      /* Paleta "Marquesa" (vinho/vermelho escuro) + neutros */
+      --bg-1: #160709;
+      --bg-2: #2a0b10;
 
-        h1 {
-            margin-bottom: 15px;
-            font-size: 26px;
-        }
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.14);
 
-        p {
-            margin-bottom: 30px;
-            font-size: 16px;
-            opacity: 0.9;
-        }
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted-2: rgba(255,255,255,0.60);
 
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 18px;
-            margin-bottom: 15px;
-            background-color: #00c853;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
+      --brand: #8b0f1a;     /* vinho */
+      --brand-2: #b51224;   /* vermelho mais vivo (detalhes) */
+      --focus: rgba(255, 90, 110, 0.28);
 
-        .btn:hover {
-            background-color: #00a844;
-        }
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --shadow-soft: 0 12px 28px rgba(0,0,0,0.35);
 
-        .btn-hortfrut {
-            background-color: #ff9800;
-        }
+      --radius: 16px;
 
-        .btn-hortfrut:hover {
-            background-color: #e68900;
-        }
+      --btn-bg: rgba(0,0,0,0.16);
+      --btn-border: rgba(255,255,255,0.14);
+      --btn-shadow: 0 10px 22px rgba(0,0,0,0.28);
 
-        .btn-carne {
-            background-color: #d32f2f;
-        }
+      --whatsapp: #25D366;
+      --whatsapp-hover: #1ebe5d;
+    }
 
-        .btn-carne:hover {
-            background-color: #b71c1c;
-        }
+    *{ box-sizing: border-box; }
 
-        /* NOVO BOTÃO - CAMINHÕES */
-        .btn-caminhoes {
-            background-color: #1976d2;
-        }
+    body{
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(181,18,36,0.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(139,15,26,0.18), transparent 60%),
+        linear-gradient(135deg, var(--bg-2), var(--bg-1));
+      display: grid;
+      place-items: center;
+      padding: 26px 16px;
+    }
 
-        .btn-caminhoes:hover {
-            background-color: #0d47a1;
-        }
+    .wrap{
+      width: 100%;
+      max-width: 680px; /* PC: 520–680px */
+    }
 
-        .btn-miudezas {
-            background-color: #6a1b9a;
-        }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
+      position: relative;
+    }
 
-        .btn-miudezas:hover {
-            background-color: #4a148c;
-        }
+    /* Faixa discreta corporativa */
+    .card::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(181,18,36,0.20), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), transparent 30%);
+      opacity: 0.9;
+    }
 
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            opacity: 0.8;
-        }
+    .header{
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
 
-        .dev {
-            margin-top: 15px;
-            font-size: 11px;
-            opacity: 0.6;
-        }
+    .title-area{
+      display: grid;
+      gap: 6px;
+    }
 
-        .dev a {
-            display: inline-block;
-            margin-top: 6px;
-            padding: 6px 14px;
-            font-size: 11px;
-            color: #ffffff;
-            text-decoration: none;
-            background-color: #25D366;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
+    h1{
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
 
-        .dev a:hover {
-            background-color: #1ebe5d;
-        }
-    </style>
+    .subtitle{
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .badge{
+      position: relative;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.18);
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .badge .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--brand-2);
+      box-shadow: 0 0 0 4px rgba(181,18,36,0.18);
+    }
+
+    .grid{
+      position: relative;
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      width: 100%;
+      padding: 16px 16px;
+      border-radius: 14px;
+
+      text-decoration: none;
+      color: var(--text);
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      box-shadow: var(--btn-shadow);
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Detalhe lateral (não muda o fundo inteiro) */
+    .btn::before{
+      content:"";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom: 10px;
+      width: 4px;
+      border-radius: 999px;
+      background: rgba(181,18,36,0.85);
+      box-shadow: 0 0 0 4px rgba(181,18,36,0.10);
+    }
+
+    .btn .icon{
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      margin-left: 10px; /* empurra por conta da faixa */
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .btn .text{
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .btn .text strong{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .btn .text span{
+      font-size: 13px;
+      color: var(--muted-2);
+      line-height: 1.25;
+    }
+
+    /* Hover desktop: elevar + sombra */
+    @media (hover: hover) and (pointer: fine){
+      .btn:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 16px 34px rgba(0,0,0,0.42);
+        border-color: rgba(255,255,255,0.22);
+        background: rgba(0,0,0,0.22);
+      }
+    }
+
+    /* Active mobile: “clique” */
+    .btn:active{
+      transform: scale(0.985);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.30);
+    }
+
+    /* Foco acessível */
+    .btn:focus-visible{
+      outline: none;
+      box-shadow:
+        0 0 0 4px var(--focus),
+        0 16px 34px rgba(0,0,0,0.42);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    /* Variações discretas: apenas cor da faixa + ícone */
+    .btn.green::before{ background: rgba(70, 200, 140, 0.95); box-shadow: 0 0 0 4px rgba(70,200,140,0.12); }
+    .btn.blue::before{ background: rgba(110, 170, 255, 0.95); box-shadow: 0 0 0 4px rgba(110,170,255,0.12); }
+    .btn.amber::before{ background: rgba(255, 186, 74, 0.95); box-shadow: 0 0 0 4px rgba(255,186,74,0.12); }
+    .btn.purple::before{ background: rgba(180, 120, 255, 0.95); box-shadow: 0 0 0 4px rgba(180,120,255,0.12); }
+
+    .footer{
+      position: relative;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      display: grid;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .tagline{
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .dev{
+      font-size: 12px;
+      color: var(--muted-2);
+    }
+
+    .whatsapp{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      margin-top: 6px;
+      padding: 12px 14px;
+      border-radius: 999px;
+
+      background: var(--whatsapp);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.30);
+
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (hover: hover) and (pointer: fine){
+      .whatsapp:hover{
+        background: var(--whatsapp-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(0,0,0,0.36);
+      }
+    }
+
+    .whatsapp:active{
+      transform: scale(0.985);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.26);
+    }
+
+    .whatsapp:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(37,211,102,0.25), 0 16px 34px rgba(0,0,0,0.36);
+    }
+
+    /* Ajustes mobile */
+    @media (max-width: 420px){
+      .card{ padding: 22px 16px; }
+      h1{ font-size: 26px; }
+      .subtitle{ font-size: 14px; }
+      .badge{ display: none; } /* limpa o topo no celular */
+      .btn{ padding: 15px 14px; }
+      .btn .text strong{ font-size: 15px; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Rede Marquesa</h1>
-        <p>Acesso rápido às planilhas de controle</p>
-
-        <a class="btn" 
-           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk" 
-           target="_blank">
-            📊 Folhagem Rede Marquesa
-        </a>
-
-        <a class="btn btn-hortfrut" 
-           href="https://docs.google.com/spreadsheets/d/1iM-7YOlpw63EcOxjE-dzgVt5aAd0kScLRsVpTinA5X0/edit?usp=drivesdk" 
-           target="_blank">
-            🥬 Marquesa Hortfrut
-        </a>
-
-        <a class="btn btn-carne" 
-           href="https://docs.google.com/spreadsheets/d/1zn5bxScn86UEQdGnEZwB8hNAqooi_jA1ATexvyTJL20/edit?usp=drivesdk" 
-           target="_blank">
-            🥩 Quantidade de Carne – Lojas
-        </a>
-
-        <!-- NOVO BOTÃO INSERIDO -->
-        <a class="btn btn-caminhoes" 
-           href="https://docs.google.com/spreadsheets/d/1uBI1BlIvf5hnaHA5IFgnRt3mfq81yJgS1Vwiky24arw/edit?gid=0#gid=0" 
-           target="_blank">
-            🚚 Caminhões – Entregas – Rede Marquesa
-        </a>
-
-        <a class="btn btn-miudezas" 
-           href="https://docs.google.com/spreadsheets/d/1aGqmEc_VgQsqWQ80Pfu53aE3032ofi3nM-gjNA0fZvQ/edit?gid=920480890#gid=920480890" 
-           target="_blank">
-            🧺 Relação de Miudezas – Rede Marquesa
-        </a>
-
-        <footer>
-            Controle • Organização • Decisão com dados
-        </footer>
-
-        <div class="dev">
-            Desenvolvido por Marcos Lima Duarte<br>
-            <a href="https://wa.me/5511945047842" target="_blank">
-                WhatsApp: (11) 94504-7842
-            </a>
+  <main class="wrap">
+    <section class="card" aria-label="Central de controle operacional">
+      <header class="header">
+        <div class="title-area">
+          <h1>Rede Marquesa</h1>
+          <p class="subtitle">Central de controle operacional</p>
         </div>
-    </div>
+
+        <div class="badge" aria-hidden="true">
+          <span class="dot"></span>
+          <span>Dashboard</span>
+        </div>
+      </header>
+
+      <nav class="grid" aria-label="Links para planilhas">
+        <!-- Mantém o link original do seu arquivo -->
+        <a class="btn green"
+           href="https://docs.google.com/spreadsheets/d/1Lv870v0-02LEDRerRwRizcXTPU-7hC3t_ZiRGPEYk9A/edit?usp=drivesdk"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir Folhagem Rede Marquesa (Google Sheets)">
+          <div class="icon" aria-hidden="true">📊</div>
+          <div class="text">
+            <strong>Folhagem Rede Marquesa</strong>
+            <span>Planilha de acompanhamento</span>
+          </div>
+        </a>
+
+        <!-- Mantém o link que já está na página -->
+        <a class="btn amber"
+           href="https://docs.google.com/spreadsheets/d/1iM-7YOlpw63EcOxjE-dzgVt5aAd0kScLRsVpTinA5X0/edit?usp=drivesdk"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir Marquesa Hortfrut (Google Sheets)">
+          <div class="icon" aria-hidden="true">🥬</div>
+          <div class="text">
+            <strong>Marquesa Hortfrut</strong>
+            <span>Controle de hortifruti</span>
+          </div>
+        </a>
+
+        <a class="btn"
+           href="https://docs.google.com/spreadsheets/d/1zn5bxScn86UEQdGnEZwB8hNAqooi_jA1ATexvyTJL20/edit?usp=drivesdk"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir Quantidade de Carne – Lojas (Google Sheets)">
+          <div class="icon" aria-hidden="true">🥩</div>
+          <div class="text">
+            <strong>Quantidade de Carne – Lojas</strong>
+            <span>Volume por unidade</span>
+          </div>
+        </a>
+
+        <a class="btn blue"
+           href="https://docs.google.com/spreadsheets/d/1uBI1BlIvf5hnaHA5IFgnRt3mfq81yJgS1Vwiky24arw/edit?gid=0#gid=0"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir Caminhões – Entregas – Rede Marquesa (Google Sheets)">
+          <div class="icon" aria-hidden="true">🚚</div>
+          <div class="text">
+            <strong>Caminhões – Entregas – Rede Marquesa</strong>
+            <span>Saídas, rotas e entregas</span>
+          </div>
+        </a>
+
+        <a class="btn purple"
+           href="https://docs.google.com/spreadsheets/d/1aGqmEc_VgQsqWQ80Pfu53aE3032ofi3nM-gjNA0fZvQ/edit?gid=920480890#gid=920480890"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir Relação de Miudezas – Rede Marquesa (Google Sheets)">
+          <div class="icon" aria-hidden="true">🧺</div>
+          <div class="text">
+            <strong>Relação de Miudezas – Rede Marquesa</strong>
+            <span>Lista e padronização</span>
+          </div>
+        </a>
+      </nav>
+
+      <footer class="footer">
+        <div class="tagline">Controle • Organização • Decisão com dados</div>
+        <div class="dev">Desenvolvido por Marcos Lima Duarte</div>
+
+        <a class="whatsapp"
+           href="https://wa.me/5511945047842"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir WhatsApp para (11) 94504-7842">
+          <span aria-hidden="true">💬</span>
+          <span>WhatsApp (11) 94504-7842</span>
+        </a>
+      </footer>
+    </section>
+  </main>
 </body>
 </html>
